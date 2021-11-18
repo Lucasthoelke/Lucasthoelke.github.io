@@ -45,25 +45,21 @@
     /** vind de kaart container */
     const map = document.querySelector('#map');
 
-    const config = {
-        base: "https://planviewer-staging.nl",
-
-        viewer: {
-            /** identifier van de viewer - te vinden in dashboard */
-            identifier: "42abc031813b478ef8e55b20fc25c3536731650dd48fba7a71392d261d863c43"
-        },
-        debug: true,
-
-        /** OAuth configuratie - te vinden in het dashboard */
-        oauth: {
-            provider: "auth0",
-            domain: "https://dev-mt2bymz6.eu.auth0.com",
-            client_id: "8h62f4oeC5OyV5NMmII9acN9bSzInezY",
-        },
-        map: {
-            target: map,
-        },
-    };
+    const config =
+        {
+            "base": "https://planviewer-staging.nl",
+            "viewer": {
+                "identifier": "0a7163d5c9732a84df83d5f231b6061af08d81197fce3d95a5c91a2fd3cf6cec"
+            },
+            "debug": true,
+            "oauth": {
+                "provider": "auth0",
+                "domain": "https://dev-mt2bymz6.eu.auth0.com",
+                "client_id": "4UXmDbaeBQxXlw565JnXgtwZiVDfqR8R",
+                "audience": "https://www.planviewer.test/maps_api/application/38"
+            }
+        }
+    ;
 
     /** initialiseer de applicatie */
     const application = planviewer.PolkaPlus(config);
