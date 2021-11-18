@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="../css/style.css" type="text/css">
 
         <!-- Polka inladen -->
-        <!--<script src="https://www.planviewer-staging.nl/polka/polka-plus.js"></script>-->
+        <script src="https://www.planviewer-staging.nl/polka/polka-plus.js"></script>
 
     </head>
     <body>
@@ -110,9 +110,9 @@
 
             /** initialiseer applicatie */
             /** @TODO remove import and use iife when live */
-            import { PolkaPlus } from '@planviewer/polka-plus';
+            // import { PolkaPlus } from '@planviewer/polka-plus';
             /** change to iife build when live */
-            const application = PolkaPlus(config);
+            const application = planviewer.PolkaPlus(config);
 
             /** initialiseer Polka met de kaart-container */
             application.viewer.view.map.target = map;
