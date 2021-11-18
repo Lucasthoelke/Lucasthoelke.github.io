@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basis Kaart Applicatie</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css" type="text/css">
+
+    <!-- Polka applicatie inladen -->
+    <script src="https://www.planviewer-staging.nl/polka/polka-plus.js"></script>
+
+    <style>
+        /* Toon de kaart volledig browser scherm */
+        .map {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+        .toolbox {
+            z-index: 9;
+            position: absolute;
+            top: 20px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <section>
+        <nav>
+            <div class="toolbox">
+                <button id="login">Login</button>
+            </div>
+        </nav>
+
+        <!-- kaart container voor de applicatie -->
+        <div id="map" class="map"></div>
+    </section>
+</main>
+
+<script type="module">
+
+    /** vind de kaart container */
+    const map = document.querySelector('#map');
+
+    const config = {
+        base: "https://planviewer-staging.nl",
+
+        viewer: {
+            /** identifier van de viewer - te vinden in dashboard */
+            identifier: "42abc031813b478ef8e55b20fc25c3536731650dd48fba7a71392d261d863c43"
+        },
+        debug: true,
+
+        /** OAuth configuratie - te vinden in het dashboard */
+        oauth: {
+            provider: "auth0",
+            domain: "https://dev-mt2bymz6.eu.auth0.com",
+            client_id: "8h62f4oeC5OyV5NMmII9acN9bSzInezY",
+        },
+        map: {
+            target: map,
+        },
+    };
+
+    /** initialiseer de applicatie */
+    const application = planviewer.PolkaPlus(config);
+
+    /** vind de login knop */
+    const login = document.querySelector("#login");
+
+    login.addEventListener("click", (e) => {
+        /** start oauth login flow */
+        application.viewer.oauth.login();
+    });
+</script>
+</body>
+</html>
