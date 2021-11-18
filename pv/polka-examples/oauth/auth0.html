@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="icon" href="/favicon.ico"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css"
+              type="text/css">
+        <link rel="stylesheet" href="../css/style.css" type="text/css">
+        <title>Polka - OAuth authenticatie</title>
+    </head>
+    <body>
+        <div id="viewer">
+
+            <div class="view">
+                <div id="map" class="map-full"></div>
+
+                <div class="toolbox">
+                    <button id="login">Login</button>
+                </div>
+
+                <div class="sidebar">
+                </div>
+            </div>
+        </div>
+
+
+        <script type="module">
+
+            import { setup } from '../src/polka-plus.js';
+            //import config from '../config.dev.json';
+            import config from '../config.staging.json';
+
+            /** vind mijn map container */
+            const map = document.querySelector('#map');
+            const application = setup(config, map);
+
+            /** vind mijn UI elementen */
+            const login = document.querySelector("#login");
+
+            login.addEventListener("click", () => {
+                application.viewer.oauth.login();
+            });
+
+
+        </script>
+    </body>
+</html>

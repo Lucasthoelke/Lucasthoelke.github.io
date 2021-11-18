@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Polka voorbeeld kaart applicatie</title>
+
+        <meta charset="UTF-8" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- styling naar keuze -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css" type="text/css">
+        <link rel="stylesheet" href="../css/style.css" type="text/css">
+
+        <!-- Polka inladen -->
+        <script src="https://www.planviewer-staging.nl/polka/polka-plus.js"></script>
+
+    </head>
+    <body>
+
+        <!-- kaart container -->
+        <div id="map"></div>
+
+        <div class="toolbox">
+            <button id="login">Login</button>
+
+            <button id="location">Toon locatie</button>
+
+            <!-- maximum zoom level is 20 -->
+            <input type="range" min="0" max="20" step="0.1" class="slider" name="zoom">
+
+            <button id="pan-up">Up</button>
+            <button id="pan-left">Left</button>
+            <button id="pan-right">Right</button>
+            <button id="pan-down" style="align: center">Down</button>
+            <div id="properties" class="box">
+                <table>
+                    <tr><th>resolutie</th><td></td></tr>
+                    <tr><th>zoom</th><td></td></tr>
+                    <tr><th>tilesize</th><td></td></tr>
+                    <tr><th>extent</th><td></td></tr>
+                </table>
+            </div>
+            <div class="sidebar">
+                <div id="feature-info" class="box">
+                    <table>
+                        <thead><tr><td>Object kenmerken</td><td></td></tr></thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <script type="module">
+
+            /** @TODO change this when live */
+            const config = {
+                base: "https://planviewer-staging.nl",
+
+                /** identifier van de viewer - te vinden in dashboard */
+                viewer: "42abc031813b478ef8e55b20fc25c3536731650dd48fba7a71392d261d863c43",
+
+                /** OAuth configuratie - te vinden in het dashboard */
+                oauth: {
+                    provider: "auth0",
+                    domain: "https://dev-mt2bymz6.eu.auth0.com",
+                    client_id: "4UXmDbaeBQxXlw565JnXgtwZiVDfqR8R",
+                },
+            };
+
+            /** vind mijn UI elementen */
+            const map = document.querySelector('#map');
+            const login = document.querySelector("#login");
+
+            /** initialiseer applicatie */
+            const application = planviewer.PolkaPlus(config);
+
+            /** initialiseer Polka met de kaart-container */
+            application.viewer.view.map.target(map);
+
+            /** @TODO use api-key when available */
+            login.addEventListener("click", (e) => {
+                application.viewer.oauth.login();
+            });
+
+
+            /** tools & functies */
+            import { animate } from './kaartbeeld/animate.js';
+            import { zoom } from './kaartbeeld/zoom.js';
+            import { pan } from './kaartbeeld/pan.js';
+            import { view } from './kaartbeeld/view.js';
+            import { kenmerken } from './objecten/kenmerken.js';
+
+            /** vind mijn UI element */
+            const location = document.querySelector('#location');
+            const slider = document.querySelector('input[name="zoom"]');
+            const left = document.querySelector('#pan-left');
+            const right = document.querySelector('#pan-right');
+            const up = document.querySelector('#pan-up');
+            const down = document.querySelector('#pan-down');
+            const properties = document.querySelector('#properties table');
+            const features = document.querySelector("#feature-info table");
+            const bodies = [];
+
+            /** initialiseer tools */
+            animate(application, location);
+            zoom(application, slider);
+            pan(application, { up, down, left, right });
+            view(application, properties);
+            kenmerken(application, features);
+
+        </script>
+    </body>
+</html>

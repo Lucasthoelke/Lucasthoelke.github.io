@@ -1,0 +1,15 @@
+{
+    "base": "https://planviewer.nl",
+    "viewer": {
+        "identifier": "42abc031813b478ef8e55b20fc25c3536731650dd48fba7a71392d261d863c43"
+    },
+    "view": {
+    },
+    "debug": true,
+    "oauth": {
+        "provider": "auth0",
+        "domain": "https://dev-mt2bymz6.eu.auth0.com",
+        "client_id": "4UXmDbaeBQxXlw565JnXgtwZiVDfqR8R",
+        "audience": "https://www.planviewer.test/maps_api/application/38"
+    }
+}

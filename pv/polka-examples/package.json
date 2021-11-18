@@ -1,0 +1,26 @@
+{
+    "name": "@planviewer/polka-examples",
+    "version": "1.0.0",
+    "description": "Polka - examples",
+    "license": "ISC",
+    "author": "Axel Simons <a.simons@planviewer.nl>",
+
+    "directories": {
+        "lib": "src"
+    },
+
+    "scripts": {
+        "test": "npx web-test-runner --root-dir='../../../' --files='test/*' --node-resolve=true",
+        "build": "npx rollup -c",
+        "watch": "npx rollup -c -w"
+    },
+
+    "dependencies": {
+        "rxjs": "^7.1.0",
+        "@planviewer/polka-layers": "1.0.0",
+        "@planviewer/polka-viewer": "1.0.0",
+        "@planviewer/polka-oauth": "1.0.0",
+        "@planviewer/polka-projection": "1.0.0",
+        "@planviewer/common-module-creator": "1.0.0"
+    }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="icon" href="/favicon.ico"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css"
+              type="text/css">
+        <link rel="stylesheet" href="../css/style.css" type="text/css">
+        <title>Limit view extent naar dossiergrens</title>
+    </head>
+    <body>
+
+        <p>Limit view extent naar dossiergrens</p>
+
+        <div id="map" class="map-full"></div>
+
+        <script type="module">
+            import { Observable } from 'rxjs';
+            import { Examples } from '../src/Examples.js';
+
+
+            /** Viewer + Map initializeren met container-div */
+            const application = Examples({config: {viewerId: 'bb329b394ed75a3e5e0ed9907d22b64ee56cf5d6baa6e8bcdcc6f25163f535d9'}});
+            const viewer = application.viewer;
+
+            /** Hier bind de je de map aan*/
+            viewer.view.map.bind(({ target, size }) => {
+
+                /** subscribe voor notificaties van de target */
+                target.subscribe({
+                    next: (val) => {
+                        console.log("map target changed", val);
+                    },
+                });
+
+                const map = document.querySelector('#map');
+                return {
+                    /** Wacht op de module voordat die subscribed */
+                    target: new Observable((subscriber) => {
+                        /** Zet de kaart als de target */
+                        subscriber.next(map);
+                    }),
+                };
+            });
+        </script>
+    </body>
+</html>

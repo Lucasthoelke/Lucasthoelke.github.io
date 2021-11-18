@@ -1,0 +1,85 @@
+
+            viewer.view.map.layers.forEach((node) => {
+                const name = node.path;
+                const checkboxName = node.path.replaceAll(".", "-");
+                let depth = 0;
+
+                /** Kijkt hoe diep de sub groepen gaan */
+                if (node.path.match(/\./g)) {
+                    depth = (node.path.match(/\./g).length ?? 0);
+                }
+
+
+                /** Maakt sub lijsten aan voor de html */
+                let outerUl;
+                let innerUl;
+                let tempUl;
+                for (let i = 0; i < depth; i++) {
+                    if (outerUl) {
+                        if (!tempUl) tempUl = outerUl
+                        innerUl = document.createElement('ul');
+                        tempUl.appendChild(innerUl);
+                        tempUl = innerUl;
+                    } else outerUl = document.createElement('ul');
+                }
+
+                /** Voegt text aan de lijst item toe */
+                let entry = document.createElement('li');
+                entry.appendChild(document.createTextNode(name + ' depth: ' + depth));
+
+                /** Voegt de checkbox aan de lijst item toe */
+                let checkbox = document.createElement("INPUT");
+                setAttributes(checkbox, {"type": "checkbox", "name": checkboxName});
+                entry.appendChild(checkbox);
+
+                /** voegt de lijst item toe aan de lijst in geheel */
+                if (innerUl) {
+                    innerUl.appendChild(entry);
+                    list.appendChild(outerUl);
+                } else if (outerUl) {
+                    outerUl.appendChild(entry);
+                    list.appendChild(outerUl);
+                } else {
+                    list.appendChild(entry);
+                }
+                listDiv.appendChild(list);
+
+                bindMapWithVisible(node, checkboxName);
+            });
+
+            /** Maakt de bindings voor de groepen en lagen */
+            function bindMapWithVisible(node, inputName) {
+                node.bind(({properties}) => {
+
+                    /** vind de checkbox mijn UI elementen */
+                    const check = document.querySelector("input[name=" + inputName + "][type=checkbox]");
+
+                    /** luister naar properties feedback */
+                    properties.subscribe({
+                        next: (values) => {
+                            check.checked = values.visible ?? node.visible;
+                        },
+                    });
+
+                    return {
+                        /** geef nieuwe waardes voor properties */
+                        properties: new Observable((subscriber) => {
+
+                            /** knop handler bewaren voor cleanup */
+                            const toggler = (e) => {
+                                const check = e.target;
+                                subscriber.next({
+                                    visible: check.checked,
+                                });
+                            };
+                            check.addEventListener("click", toggler);
+
+
+                            /** return cleanup function */
+                            return () => {
+                                check.removeEventListener("click", toggler);
+                            };
+                        }),
+                    };
+                });
+            }

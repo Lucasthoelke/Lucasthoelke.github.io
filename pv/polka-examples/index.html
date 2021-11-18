@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Polka voorbeeld kaart applicatie</title>
+
+        <meta charset="UTF-8" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- styling naar keuze -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css" type="text/css">
+        <link rel="stylesheet" href="../css/style.css" type="text/css">
+
+        <!-- Polka inladen -->
+        <!--<script src="https://www.planviewer-staging.nl/polka/polka-plus.js"></script>-->
+
+    </head>
+    <body>
+        <main>
+        <section>
+            <nav>
+                <div class="toolbox">
+                    <button id="login">Login</button>
+
+                    <button id="goto">Toon locatie</button>
+
+                    <!-- maximum zoom level is 20 -->
+                    <input type="range" min="0" max="20" step="0.1" class="slider" name="zoom">
+
+                    <button id="pan-up">Up</button>
+                    <button id="pan-left">Left</button>
+                    <button id="pan-right">Right</button>
+                    <button id="pan-down" style="align: center">Down</button>
+                    <div id="kaartbeeld" class="box">
+                        <table>
+                            <tr><th>resolutie</th><td></td></tr>
+                            <tr><th>zoom</th><td></td></tr>
+                            <tr><th>tilesize</th><td></td></tr>
+                            <tr><th>extent</th><td></td></tr>
+                            <tr><th>lat / lon</th><td></td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="sidebar-left">
+                    <div id="feature-info" class="box">
+                        <table>
+                            <thead><tr><td>Object kenmerken</td><td></td></tr></thead>
+                        </table>
+                    </div>
+                </div>
+                <div class="sidebar-right">
+                    <div id="layer-switcher">
+                        <ul></ul>
+                    </div>
+                </div>
+
+                <div class="sidebar-left-bottom">
+                    <img id="baseLayerImage" src="https://i.ebayimg.com/images/g/XxYAAOxyQj9ROX36/s-l400.jpg" alt="Image for base layer" width="100" height="100">
+                </div>
+
+                <div class="overlay-box">
+                    <div class="search-box">
+                        <input id="search" list="searchExamples" name="naam">
+                            <datalist id="searchExamples">
+                                <option value="geen locaties"></option>
+                            </datalist>
+                        <button id="button">search</button>
+                    </div>
+
+                    <div class="overlay-box left">
+
+                        <label for="type">Measurement type &nbsp;</label>
+                        <select id="type">
+                            <option value="Polygon">Area (Polygon)</option>
+                            <option value="LineString">Length (LineString)</option>
+                        </select>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="segments">Show segment lengths:&nbsp;</label>
+                        <input type="checkbox" id="segments" checked/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="clear">Clear previous measure:&nbsp;</label>
+                        <input type="checkbox" id="clear" />
+                        <button id="buttonStart">start</button>
+                        <button id="buttonStop">stop</button>
+                        <button id="buttonClear">Clear</button>
+
+                    </div>
+                </div>
+
+            </nav>
+
+            <!-- kaart container -->
+            <div id="map"></div>
+        </section>
+        </main>
+
+
+
+        <script type="module">
+            // /assets/img/icon_marker.png
+            // import config from './config.dev.json';
+            import config from './config.staging.json';
+            // import config from './config.staging.layerTest.json';
+            // import config from './config.staging.allekaartlagen.json';
+            // import config from './config.staging.bagtiles.json';
+
+            /** vind mijn UI elementen */
+            const map = document.querySelector('#map');
+            const login = document.querySelector("#login");
+
+            /** initialiseer applicatie */
+            /** @TODO remove import and use iife when live */
+            import { PolkaPlus } from '@planviewer/polka-plus';
+            /** change to iife build when live */
+            const application = PolkaPlus(config);
+
+            /** initialiseer Polka met de kaart-container */
+            application.viewer.view.map.target = map;
+
+            /** @TODO use api-key when available */
+            login.addEventListener("click", (e) => {
+                application.viewer.oauth.login();
+            });
+
+
+            /** tools & functies */
+            import { location } from './kaartbeeld/location.js';
+            import { zoom } from './kaartbeeld/zoom.js';
+            import { pan } from './kaartbeeld/pan.js';
+            import { extent } from './kaartbeeld/extent.js';
+            import { kenmerken } from './objecten/kenmerken.js';
+            import { coordinates } from './datatypes/coordinates.js';
+            import { transform } from './datatypes/transform.js';
+            import { visibility } from './kaartlagen/visibility.js';
+            import { list } from './kaartlagen/list.js';
+            import { search } from './searchMap/search.js';
+            import { baseLayerSwitcher } from "./kaartlagen/baseLayerSwitcher";
+            import { measure } from "./measure/measure";
+
+            /** vind mijn UI element */
+            const goto = document.querySelector('#goto');
+            const slider = document.querySelector('input[name="zoom"]');
+            const left = document.querySelector('#pan-left');
+            const right = document.querySelector('#pan-right');
+            const up = document.querySelector('#pan-up');
+            const down = document.querySelector('#pan-down');
+            const kaartbeeld = document.querySelector('#kaartbeeld table');
+            const features = document.querySelector("#feature-info table");
+            const layers = document.querySelector('#layer-switcher ul');
+            const searchButton = document.querySelector('#button');
+            const searchInput = document.querySelector('#search');
+            const dataList = document.querySelector('#searchExamples');
+            const buttonStop = document.querySelector('#buttonStop');
+            const buttonStart = document.querySelector('#buttonStart');
+            const buttonClear = document.querySelector('#buttonClear');
+            const type = document.getElementById('type');
+            const showSegments = document.getElementById('segments');
+            const clearPrevious = document.getElementById('clear');
+            const image = document.getElementById('baseLayerImage');
+
+            /** initialiseer tools */
+            location(application, goto);
+            zoom(application, slider);
+            pan(application, { up, down, left, right });
+            extent(application, kaartbeeld);
+            kenmerken(application, features);
+            search(application, searchInput, searchButton, dataList);
+            visibility(application, layers);
+            list(application, layers);
+            baseLayerSwitcher(application, image);
+            measure(application, buttonStop, buttonStart, buttonClear, showSegments, clearPrevious, type);
+
+            /** utilities - output zichtbaar op de console */
+            coordinates(application);
+            transform(application);
+
+            /** module meta-data */
+            import { observe, get, set } from './modules/properties.js';
+            //observe(application.viewer);
+            //set(application.viewer);
+            //get(application.viewer);
+            //observe(application.viewer.view);
+            /** @TODO does not provide properties */
+            //properties(application.viewer.view.map);
+
+        </script>
+    </body>
+</html>

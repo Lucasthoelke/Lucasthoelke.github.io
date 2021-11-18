@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="icon" href="/favicon.ico"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css"
+              type="text/css">
+        <link rel="stylesheet" href="../css/style.css" type="text/css">
+        <title>Polka - kaartlagen</title>
+    </head>
+    <body>
+
+    <div id="viewer">
+        <div class="view">
+
+            <div id="map" class="map-full"></div>
+
+            <div class="toolbox">
+                <div id="view-properties" class="box">
+                    <table>
+                    </table>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="box">
+                    <label>OSM</label>
+                    <input type="checkbox" name="osm">
+                    <input type="range" name="osm" min="0" max="1" step="0.01">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <script type="module">
+            import { Observable } from 'rxjs';
+            import { Examples } from '../src';
+
+            /** Viewer + Map initializeren met container-div */
+            const application = Examples({config: {viewerId: 'bb329b394ed75a3e5e0ed9907d22b64ee56cf5d6baa6e8bcdcc6f25163f535d9'}});
+            const viewer = application.viewer;
+
+            viewer.view.map.bind(({target, size}) => {
+                /** subscribe to notifications about map.target */
+                target.subscribe({
+                    next: (val) => {
+                        console.log("map target changed", val);
+                    },
+                });
+                size.subscribe({
+                    next: (val) => {
+                        console.log("map size changed", val);
+                    },
+                });
+
+                const map = document.querySelector('#map');
+                return {
+                    /** wait for module to subscribe */
+                    target: new Observable((subscriber) => {
+                        /** send map as target */
+                        subscriber.next(map);
+                    }),
+                };
+            });
+
+            viewer.view.map.layers.on("add", (e) => {
+                /** layer module */
+                const layer = e.element;
+                console.log(`layer ${layer.name} added ${layer.path}`);
+                layer.bind(({properties}) => {
+
+                    /** vind mijn UI elementen */
+                    const toggle = document.querySelector("input[name=osm][type=checkbox]");
+                    const opacity = document.querySelector("input[name=osm][type=range]");
+
+                    /** luister naar properties feedback */
+                    properties.subscribe({
+                        next: (values) => {
+                            console.log(values);
+                            toggle.checked = values.visible;
+                            opacity.value = values.opacity;
+                        },
+                    });
+
+                    return {
+                        /** geef nieuwe waardes voor properties */
+                        properties: new Observable((subscriber) => {
+
+                            /** knop handler bewaren voor cleanup */
+                            const toggler = (e) => {
+                                const checkbox = e.target;
+                                subscriber.next({
+                                    visible: checkbox.checked,
+                                });
+                            };
+                            toggle.addEventListener("click", toggler);
+
+                            const shader = (e) => {
+                                const slider = e.target;
+                                subscriber.next({
+                                    opacity: slider.value,
+                                });
+                            };
+                            opacity.addEventListener("input", shader);
+
+                            /** return cleanup function */
+                            return () => {
+                                toggle.removeEventListener("click", toggler);
+                                opacity.removeEventListener("input", shader);
+                            };
+                        }),
+                    };
+                });
+            });
+
+        </script>
+    </body>
+</html>

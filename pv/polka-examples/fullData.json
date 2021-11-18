@@ -1,0 +1,674 @@
+{
+  "BASE_LAYER_DATA": [
+    {
+      "name": "OpenStreetMap",
+      "type": "Group",
+      "params": {
+        "layers": [
+          {
+            "type": "Tile",
+            "params": {
+              "opacity": 1,
+              "source": {
+                "type": "TileWMS",
+                "params": {
+                  "url": "https:\/\/maps.planviewer.nl\/mapcache",
+                  "params": {
+                    "LAYERS": "osm"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "maxResolution": 0.10000000000000001,
+              "opacity": 1,
+              "source": {
+                "type": "ImageWMS",
+                "params": {
+                  "url": "https:\/\/maps.planviewer.nl\/map\/osm",
+                  "params": {
+                    "LAYERS": "default"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "thumbnail_url": "https:\/\/www.planviewer.nl\/maps_api\/v2\/embed\/viewer\/3ab06e6809bf3a6569cb1e66160a101b02c2db2443856df364cc966d194728d0\/thumbnail_static\/osm"
+      },
+      "id": 995548,
+      "base": true,
+      "consultable": false,
+      "sort_order": 1,
+      "show_layer": true,
+      "use_transparency": null
+    },
+    {
+      "name": "Luchtfoto",
+      "type": "Tile",
+      "filter_fields": [],
+      "translations": [],
+      "banners": [],
+      "params": {
+        "opacity": 1,
+        "source": {
+          "type": "TileWMS",
+          "params": {
+            "url": "https:\/\/service.pdok.nl\/hwh\/luchtfotorgb\/wms\/v1_0?&service=wms",
+            "params": {
+              "LAYERS": "Actueel_ortho25"
+            },
+            "tilegrid": {
+              "type": "xyz",
+              "params": {
+                "minZoom": 0,
+                "tileSize": [
+                  256,
+                  256
+                ],
+                "maxZoom": 14,
+                "extent": [
+                  -285401.91999999998,
+                  22598.080000000002,
+                  595401.92000000004,
+                  903401.92000000004
+                ]
+              }
+            }
+          }
+        },
+        "thumbnail_url": "https:\/\/www.planviewer.nl\/maps_api\/v2\/embed\/viewer\/3ab06e6809bf3a6569cb1e66160a101b02c2db2443856df364cc966d194728d0\/thumbnail_static\/aerial"
+      },
+      "id": 995549,
+      "base": true,
+      "consultable": false,
+      "sort_order": 2,
+      "show_layer": true,
+      "use_transparency": null
+    },
+    {
+      "name": "Basisregistratie Grootschalige Topografie",
+      "type": "Tile",
+      "filter_fields": [],
+      "translations": [],
+      "banners": [],
+      "params": {
+        "opacity": 1,
+        "source": {
+          "type": "TileWMTSExternal",
+          "params": {
+            "url": "https:\/\/maps.planviewer.nl\/proxy\/aHR0cHM6Ly9nZW9kYXRhLm5hdGlvbmFhbGdlb3JlZ2lzdGVyLm5sL3RpbGVzL3NlcnZpY2Uvd210cz9yZXF1ZXN0PUdldENhcGFiaWxpdGllcyZzZXJ2aWNlPVdNVFM",
+            "params": {
+              "LAYERS": "bgtstandaardv2"
+            },
+            "imageLoadFunction": false
+          }
+        },
+        "thumbnail_url": "https:\/\/www.planviewer.nl\/maps_api\/v2\/embed\/viewer\/3ab06e6809bf3a6569cb1e66160a101b02c2db2443856df364cc966d194728d0\/thumbnail_static\/wmts"
+      },
+      "id": 995550,
+      "base": true,
+      "consultable": false,
+      "sort_order": 3,
+      "show_layer": true,
+      "use_transparency": null
+    },
+    {
+      "name": "Bestemmingsplannen",
+      "type": "Tile",
+      "filter_fields": [],
+      "banners": [],
+      "translations": [],
+      "feature_type": "imro",
+      "params": {
+        "opacity": 1,
+        "source": {
+          "type": "TileWMS",
+          "params": {
+            "url": "https:\/\/maps.planviewer.nl\/map\/imro",
+            "params": {
+              "LAYERS": "bpgebied"
+            }
+          }
+        },
+        "thumbnail_url": "https:\/\/www.planviewer.nl\/maps_api\/v2\/embed\/viewer\/3ab06e6809bf3a6569cb1e66160a101b02c2db2443856df364cc966d194728d0\/thumbnail_static\/imro"
+      },
+      "id": 995551,
+      "base": true,
+      "consultable": false,
+      "sort_order": 4,
+      "show_layer": true,
+      "use_transparency": null
+    }
+  ],
+  "OVERLAY_LAYER_DATA": [
+    {
+      "name": "vectorlaag_NAME",
+      "aswms": true,
+      "type": "Tile",
+      "wfstype": "Vector",
+      "drawable": false,
+      "fieldmappings": [],
+      "filter_fields": [],
+      "translations": [],
+      "banners": [],
+      "show_layer": true,
+      "show_legend": false,
+      "label_layer": false,
+      "label_field": "labelveldnaam",
+      "params": {
+        "opacity": 0.69999999999999996,
+        "styleDefinitions": {
+          "name": "default_polygon",
+          "style": {
+            "name": "default_polygon",
+            "rules": [
+              {
+                "name": "default_polygon",
+                "expression": false,
+                "isDefault": true,
+                "symbolizers": [
+                  {
+                    "type": "polygon",
+                    "stroke": {
+                      "stroke": {
+                        "type": "literal",
+                        "val": "#69202B"
+                      },
+                      "stroke_width": {
+                        "type": "literal",
+                        "val": 1
+                      },
+                      "strokeMode": "solid"
+                    },
+                    "fill": {
+                      "fill": {
+                        "type": "literal",
+                        "val": "#CF6372"
+                      },
+                      "fill_opacity": {
+                        "type": "literal",
+                        "val": 0.80000000000000004
+                      },
+                      "fillMode": "solid"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "source": {
+          "type": "TileWMS",
+          "wfstype": "Vector",
+          "authenticated": true,
+          "params": {
+            "format": {
+              "type": "WMS",
+              "params": []
+            },
+            "params": {
+              "LAYERS": "mapsapi_features"
+            },
+            "strategy": "all",
+            "url": "https:\/\/maps.planviewer.nl\/maps_api\/viewer\/3ab06e6809bf3a6569cb1e66160a101b02c2db2443856df364cc966d194728d0\/vectorsource\/48401?",
+            "wfs_url": "https:\/\/maps.planviewer.nl\/maps_api\/viewer\/3ab06e6809bf3a6569cb1e66160a101b02c2db2443856df364cc966d194728d0\/vectorsource\/48401?service=WFS&version=1.1.0&request=GetFeature&typename=vectorsource_48401&maxfeatures=50000&srsname=EPSG:28992"
+          }
+        },
+        "thumbnail_url": "https:\/\/www.planviewer.nl\/maps_api\/v2\/embed\/viewer\/3ab06e6809bf3a6569cb1e66160a101b02c2db2443856df364cc966d194728d0\/thumbnail_static\/vector"
+      },
+      "id": 995846,
+      "base": false,
+      "consultable": true,
+      "sort_order": 13,
+      "use_transparency": false
+    },
+    {
+      "name": "DossierGrens_NAME",
+      "type": "Tile",
+      "filter_fields": [],
+      "translations": [],
+      "banners": [],
+      "params": {
+        "opacity": 0.69999999999999996,
+        "source": {
+          "type": "TileWMS",
+          "authenticated": true,
+          "cache_bypass": true,
+          "clickable": false,
+          "params": {
+            "url": "https:\/\/maps.planviewer.nl\/maps_api\/viewer\/3ab06e6809bf3a6569cb1e66160a101b02c2db2443856df364cc966d194728d0\/outlinesource\/200123",
+            "params": {
+              "LAYERS": "outline"
+            }
+          }
+        },
+        "thumbnail_url": "https:\/\/www.planviewer.nl\/maps_api\/v2\/embed\/viewer\/3ab06e6809bf3a6569cb1e66160a101b02c2db2443856df364cc966d194728d0\/thumbnail_static\/outline"
+      },
+      "id": 995837,
+      "base": false,
+      "consultable": true,
+      "sort_order": 12,
+      "show_layer": true,
+      "use_transparency": false
+    },
+    {
+      "name": "ruimtelijkeplannen_NAME",
+      "type": "Tile",
+      "filter_fields": [],
+      "banners": [],
+      "translations": [],
+      "feature_type": "imro",
+      "params": {
+        "opacity": 0.69999999999999996,
+        "source": {
+          "type": "TileWMS",
+          "params": {
+            "url": "https:\/\/maps.planviewer.nl\/map\/imro",
+            "params": {
+              "LAYERS": "bpgebied"
+            }
+          }
+        },
+        "thumbnail_url": "https:\/\/www.planviewer.nl\/maps_api\/v2\/embed\/viewer\/3ab06e6809bf3a6569cb1e66160a101b02c2db2443856df364cc966d194728d0\/thumbnail_static\/imro"
+      },
+      "id": 995836,
+      "base": false,
+      "consultable": true,
+      "sort_order": 11,
+      "show_layer": true,
+      "use_transparency": false
+    },
+    {
+      "name": "BAG_verctor_NAME",
+      "type": "Vector",
+      "filter_fields": [],
+      "translations": [],
+      "banners": [],
+      "params": {
+        "opacity": 0.69999999999999996,
+        "styleDefinitions": {
+          "name": "bag",
+          "style": {
+            "name": "bag",
+            "rules": [
+              {
+                "name": "pand",
+                "expression": {
+                  "type": "compare",
+                  "op": "eq",
+                  "lhs": {
+                    "type": "property",
+                    "path": "type"
+                  },
+                  "rhs": {
+                    "type": "literal",
+                    "val": "pand"
+                  },
+                  "matchCase": true
+                },
+                "isDefault": false,
+                "symbolizers": [
+                  {
+                    "type": "polygon",
+                    "stroke": {
+                      "stroke": {
+                        "type": "literal",
+                        "val": "#000000"
+                      },
+                      "stroke_width": {
+                        "type": "literal",
+                        "val": 1
+                      },
+                      "strokeMode": "solid"
+                    },
+                    "fill": {
+                      "fill": {
+                        "type": "literal",
+                        "val": "rgb(193, 193, 193)"
+                      },
+                      "fillMode": "solid"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "ligplaats",
+                "expression": {
+                  "type": "compare",
+                  "op": "eq",
+                  "lhs": {
+                    "type": "property",
+                    "path": "type"
+                  },
+                  "rhs": {
+                    "type": "literal",
+                    "val": "ligplaats"
+                  },
+                  "matchCase": true
+                },
+                "isDefault": false,
+                "symbolizers": [
+                  {
+                    "type": "polygon",
+                    "stroke": {
+                      "stroke": {
+                        "type": "literal",
+                        "val": "#000000"
+                      },
+                      "stroke_width": {
+                        "type": "literal",
+                        "val": 1
+                      },
+                      "strokeMode": "solid"
+                    },
+                    "fill": {
+                      "fill": {
+                        "type": "literal",
+                        "val": "rgb(131, 199, 221)"
+                      },
+                      "fillMode": "solid"
+                    }
+                  }
+                ]
+              },
+              {
+                "name": "standplaats",
+                "expression": {
+                  "type": "compare",
+                  "op": "eq",
+                  "lhs": {
+                    "type": "property",
+                    "path": "type"
+                  },
+                  "rhs": {
+                    "type": "literal",
+                    "val": "standplaats"
+                  },
+                  "matchCase": true
+                },
+                "isDefault": false,
+                "symbolizers": [
+                  {
+                    "type": "polygon",
+                    "stroke": {
+                      "stroke": {
+                        "type": "literal",
+                        "val": "#000000"
+                      },
+                      "stroke_width": {
+                        "type": "literal",
+                        "val": 1
+                      },
+                      "strokeMode": "solid"
+                    },
+                    "fill": {
+                      "fill": {
+                        "type": "literal",
+                        "val": "rgb(214, 148, 198)"
+                      },
+                      "fillMode": "solid"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "maxResolution": 0.80000000000000004,
+        "source": {
+          "type": "Vector",
+          "params": {
+            "format": {
+              "type": "WFS",
+              "params": []
+            },
+            "strategy": "tile",
+            "url": "https:\/\/maps.planviewer.nl\/map\/bag20?service=WFS&version=1.1.0&request=GetFeature&typenames=bag20&maxfeatures=50000&srsname=EPSG:28992&bbox=__extent__,EPSG:28992"
+          }
+        },
+        "thumbnail_url": "https:\/\/www.planviewer.nl\/maps_api\/v2\/embed\/viewer\/3ab06e6809bf3a6569cb1e66160a101b02c2db2443856df364cc966d194728d0\/thumbnail_static\/bag_vector"
+      },
+      "id": 995828,
+      "base": false,
+      "consultable": true,
+      "sort_order": 10,
+      "show_layer": true,
+      "use_transparency": false
+    },
+    {
+      "name": "BAG_NAME",
+      "type": "Tile",
+      "filter_fields": [],
+      "translations": [],
+      "banners": [],
+      "params": {
+        "opacity": 0.69999999999999996,
+        "source": {
+          "type": "TileWMS",
+          "params": {
+            "url": "https:\/\/maps.planviewer.nl\/map\/bag20",
+            "params": {
+              "LAYERS": "bag"
+            }
+          }
+        },
+        "thumbnail_url": "https:\/\/www.planviewer.nl\/maps_api\/v2\/embed\/viewer\/3ab06e6809bf3a6569cb1e66160a101b02c2db2443856df364cc966d194728d0\/thumbnail_static\/bag"
+      },
+      "id": 995827,
+      "base": false,
+      "consultable": true,
+      "sort_order": 9,
+      "show_layer": true,
+      "use_transparency": false
+    },
+    {
+      "name": "kadasterVector_NAME",
+      "type": "Vector",
+      "filter_fields": [],
+      "translations": [],
+      "banners": [],
+      "params": {
+        "opacity": 0.69999999999999996,
+        "styleDefinitions": {
+          "name": "Percelen",
+          "style": {
+            "name": "Percelen",
+            "rules": [
+              {
+                "name": "Percelen",
+                "expression": true,
+                "isDefault": false,
+                "symbolizers": [
+                  {
+                    "type": "polygon",
+                    "stroke": {
+                      "stroke": {
+                        "type": "literal",
+                        "val": "#ff0000"
+                      },
+                      "stroke_width": {
+                        "type": "literal",
+                        "val": 1
+                      },
+                      "strokeMode": "solid"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "maxResolution": 1,
+        "source": {
+          "type": "Vector",
+          "params": {
+            "format": {
+              "type": "WFS",
+              "params": []
+            },
+            "strategy": "tile",
+            "url": "https:\/\/maps.planviewer.nl\/map\/percelen?service=WFS&version=1.1.0&request=GetFeature&typename=percelen&maxfeatures=50000&srsname=EPSG:28992&bbox=__extent__,EPSG:28992"
+          }
+        },
+        "thumbnail_url": "https:\/\/www.planviewer.nl\/maps_api\/v2\/embed\/viewer\/3ab06e6809bf3a6569cb1e66160a101b02c2db2443856df364cc966d194728d0\/thumbnail_static\/dkk_vector"
+      },
+      "id": 995819,
+      "base": false,
+      "consultable": true,
+      "sort_order": 8,
+      "show_layer": true,
+      "use_transparency": false
+    },
+    {
+      "name": "KadasterPercelen_NAME",
+      "type": "Tile",
+      "filter_fields": [],
+      "translations": [],
+      "banners": [],
+      "params": {
+        "opacity": 0.69999999999999996,
+        "source": {
+          "type": "TileWMS",
+          "params": {
+            "url": "https:\/\/maps.planviewer.nl\/map\/percelen",
+            "params": {
+              "LAYERS": "percelen"
+            }
+          }
+        },
+        "thumbnail_url": "https:\/\/www.planviewer.nl\/maps_api\/v2\/embed\/viewer\/3ab06e6809bf3a6569cb1e66160a101b02c2db2443856df364cc966d194728d0\/thumbnail_static\/dkk"
+      },
+      "id": 995818,
+      "base": false,
+      "consultable": true,
+      "sort_order": 7,
+      "show_layer": true,
+      "use_transparency": false
+    },
+    {
+      "name": "Luchfoto_NAME",
+      "type": "Tile",
+      "filter_fields": [],
+      "translations": [],
+      "banners": [],
+      "params": {
+        "opacity": 0.69999999999999996,
+        "source": {
+          "type": "TileWMS",
+          "params": {
+            "url": "https:\/\/service.pdok.nl\/hwh\/luchtfotorgb\/wms\/v1_0?&service=wms",
+            "params": {
+              "LAYERS": "Actueel_ortho25"
+            },
+            "tilegrid": {
+              "type": "xyz",
+              "params": {
+                "minZoom": 0,
+                "tileSize": [
+                  256,
+                  256
+                ],
+                "maxZoom": 14,
+                "extent": [
+                  -285401.91999999998,
+                  22598.080000000002,
+                  595401.92000000004,
+                  903401.92000000004
+                ]
+              }
+            }
+          }
+        },
+        "thumbnail_url": "https:\/\/www.planviewer.nl\/maps_api\/v2\/embed\/viewer\/3ab06e6809bf3a6569cb1e66160a101b02c2db2443856df364cc966d194728d0\/thumbnail_static\/aerial"
+      },
+      "id": 995817,
+      "base": false,
+      "consultable": true,
+      "sort_order": 6,
+      "show_layer": true,
+      "use_transparency": false
+    },
+    {
+      "name": "OSM_NAME",
+      "type": "Group",
+      "params": {
+        "layers": [
+          {
+            "type": "Tile",
+            "params": {
+              "opacity": 0.69999999999999996,
+              "source": {
+                "type": "TileWMS",
+                "params": {
+                  "url": "https:\/\/maps.planviewer.nl\/mapcache",
+                  "params": {
+                    "LAYERS": "osm"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "Image",
+            "params": {
+              "maxResolution": 0.10000000000000001,
+              "opacity": 0.69999999999999996,
+              "source": {
+                "type": "ImageWMS",
+                "params": {
+                  "url": "https:\/\/maps.planviewer.nl\/map\/osm",
+                  "params": {
+                    "LAYERS": "default"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "thumbnail_url": "https:\/\/www.planviewer.nl\/maps_api\/v2\/embed\/viewer\/3ab06e6809bf3a6569cb1e66160a101b02c2db2443856df364cc966d194728d0\/thumbnail_static\/osm"
+      },
+      "id": 995816,
+      "base": false,
+      "consultable": true,
+      "sort_order": 5,
+      "show_layer": true,
+      "use_transparency": false
+    }
+  ],
+  "DEFAULT_EXTENT": [
+    12628.054099999999,
+    308179.04229999997,
+    283594.4779,
+    611063.14289999998
+  ],
+  "MAX_EXTENT": [
+    12628.054099999999,
+    308179.04229999997,
+    283594.4779,
+    611063.14289999998
+  ],
+  "DOSSIER_OUTLINE": "SRID=28992;POLYGON((192260 306850,176710 307250,176550 307280,176380 307320,176260 307350,175810 307550,172940 316800,172750 317420,172720 317570,172920 319400,173090 320200,173160 320280,176880 324530,180212.418663304 328241.556116015,178600 329690,178530 329770,178470 329860,156704.453132174 363656.169569135,148640 363580,144580 363570,95760 381890,92425.3525207041 387934.048556224,88430 375400,62460 362530,62180 362410,55190 359470,51070 358000,51030 357990,50980 357980,50100 357830,44170 359110,44060 359140,29073.1704612979 367855.537645964,25200 363540,25160 363510,22770 363320,21860 363250,21460 363220,20990 363190,20820 363180,20460 363170,19630 363150,19590 363150,19520 363160,18170 363540,16750 364990,14800 367040,14740 367110,14700 367170,14660 367240,-70 393990,-5000 398300,-5250 398550,-5130 399130,-5000 399720,-4850 400270,-4680 400880,-4500 401420,-4300 402010,-4090 402570,-3860 403130,-3600 403720,-3360 404220,-3100 404730,-2680 405500,7530 423000,7700 423290,8070 423880,8350 424300,8690 424790,9050 425270,9420 425750,9800 426210,10140 426610,10530 427030,10930 427440,11340 427850,11770 428260,12180 428620,12580 428970,17680 433170,18140 433540,18620 433910,19090 434240,30510 442110,38260 454820,38500 455210,38670 455480,38960 455920,39070 456090,80420 515000,83450 556550,83510 557150,83570 557650,83650 558220,83740 558780,83840 559270,84000 560000,84090 560370,84230 560880,84390 561400,84570 561970,84750 562470,84930 562960,85120 563420,85320 563880,85780 564880,90770 575300,91200 576180,91690 577130,91930 577570,92220 578100,92730 578960,92960 579320,93270 579800,93400 580000,94820 585930,94960 586510,95110 587090,95280 587670,95450 588210,95660 588800,95870 589370,96100 589920,96320 590420,96600 591010,96800 591430,97160 592100,97410 592530,97680 592990,97940 593410,98230 593850,98520 594260,98840 594700,99150 595100,99490 595530,99800 595890,100500 596670,100830 597010,101240 597410,101570 597720,101900 598020,102340 598400,119440 612890,119980 613340,120150 613480,120290 613590,120810 613980,121130 614210,121500 614470,128280 619210,128620 619430,129250 619830,129400 619920,129750 620120,130300 620420,130740 620650,131300 620920,131620 621070,131990 621230,132400 621400,132960 621620,133530 621820,133880 621940,134580 622150,134960 622260,139190 623470,151880 626870,151960 626890,155650 629150,156150 629440,156450 629610,156670 629730,157200 630010,157740 630280,158240 630510,161020 631750,161570 631990,162120 632220,162580 632400,162660 632430,163130 632600,163650 632770,164130 632920,165000 633160,166030 633390,166610 633500,167060 633570,167460 633630,168020 633700,168520 633750,198620 636250,198890 636270,199440 636300,199720 636310,200020 636320,210000 636630,215360 639570,215620 639710,216110 639970,216380 640110,216600 640220,217120 640470,217400 640600,217410 640600,274940 595470,275330 593170,276800 584490,276880 584010,276890 583940,276860 583530,276920 583380,277190 582650,277230 582460,278030 578640,277840 559340,267920 519960,269800 487880,269800 486220,269640 473900,269610 473810,269520 473580,269370 473200,269360 473180,269350 473170,256760 461270,255540 460150,248460 456190,253860 446000,254130 445180,254320 443740,254330 443650,254330 443570,254320 443440,254310 443390,254160 442990,254050 442720,251410 438840,251120 438490,250630 437900,250260 437460,250140 437320,248860 436290,247590 435320,247450 435260,246930 435040,225330 427100,225300 427090,225110 427040,224950 427010,224930 427010,222630 427640,222600 427650,222300 427830,222270 427850,219889.816694997 429563.731979602,212260 391920,213100 387660,213420 379350,213450 374910,210140 352410,199342.340992897 328483.256985176,204680 325960,204710 325920,204710 325840,204340 320510,203390 317660,199730 307340,198210 307190,197800 307160,192310 306850,192260 306850))",
+  "PRINT_URL": "\/maps_api\/v2\/embed\/print\/3ab06e6809bf3a6569cb1e66160a101b02c2db2443856df364cc966d194728d0",
+  "CLICKABLE_VIEWER_URL": "\/maps_api\/v2\/embed\/viewer\/__VIEWER__",
+  "SHOW_PRINT": true,
+  "SHOW_RESET": true,
+  "SHOW_MEASURE": true,
+  "SHOW_SNAP": true,
+  "USE_GPS": true,
+  "GPS_BUTTON": true,
+  "SHOW_TRANSPARANCY": false,
+  "USE_POSTMESSAGE": true,
+  "USE_SEARCH": true,
+  "ACTIVE_LAYERS": false,
+  "VIEWER_JWT": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2Mjg2NjUzODYsImV4cCI6MTYyODY2ODk4NiwiYXBwbGljYXRpb24iOjQ0Niwidmlld2VyIjoiM2FiMDZlNjgwOWJmM2E2NTY5Y2IxZTY2MTYwYTEwMWIwMmMyZGIyNDQzODU2ZGYzNjRjYzk2NmQxOTQ3MjhkMCJ9.YLbYgNswr-w7GUPHmXueRcfQRf2y18_Wg9mPZahJYf-Q3OF11EHyNZEvY0af1_Mu_M-sg8hiA9K8K5iUIffa5p7nkBnMtbKSF6hRDklO8sHnV0Jb-7qKKFlPeQU8ZsyNOUkMWDj8QDSSVUG9TLz9aWgrnz8oU8RYCABTPkoH2Jlvj14PoCnnvEi6iToC9j7f3Oj3NymMbuKNf6nOX8YBA4P5Kl9JpyTs4o-6Eg-aTAGjUvTuvvvWdRzbTlrLMIrbS_zNjxmmFHrBK5eGrfXhbUhwS0oxdewfTFm-0dL07xc0-cbJaaXjlat3GWntvFYCwE3c6miJ-4918I82s-MDhjNfhRhf-2ryMM84xdtQdfyM6FIJutc25hklhh73mYNJ2_5X9eWnl4jKJ75M1BqQ3gOuL2viqTFLxWvGE_u9BDRA4RYKlhZtGuInd48dHC3qSFmcudIzZU62s3GIsrH5QhVOBdxms8Zv0l2jSAZZl5X9yoB_z9faBsazdRi2NEUvcBOez_R15vKRcJvR2wUd8JHlOO5LG3_m4a3bz9luFBWQk2LG8kb9WsAgTMkgFlVFAGJeBrI-n_ppDodT8D2Qb4oD-lH5klNNdTZblK3OFVpL3Ph5g4-M9EAKmz4v-yytPP5Yh10aDFkGV7AKGbhYNWzbTHnn8FPDwjmSLE0464c",
+  "VIEWER_ID": "3ab06e6809bf3a6569cb1e66160a101b02c2db2443856df364cc966d194728d0",
+  "APPLICATION_ID": 446,
+  "VISIBLE_LAYERS": false,
+  "INFO_TEXT": "Tap of Klik op de locatie waarvan je informatie wilt zien. Zorg dat de juiste kaartlagen aanstaan. <br \/> Gebruik het oog-icoontje (indien beschikbaar) om de gekozen locatie te highlighten\n",
+  "SEARCH_URL": "\/maps_api\/v2\/embed\/search\/3ab06e6809bf3a6569cb1e66160a101b02c2db2443856df364cc966d194728d0",
+  "ZOOM_ON_START": 0
+}

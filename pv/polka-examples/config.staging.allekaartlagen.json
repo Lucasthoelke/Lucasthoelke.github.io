@@ -1,0 +1,16 @@
+{
+    "base": "https://planviewer-staging.nl",
+    "viewer": {
+        "identifier": "adb56cf3e65d115411d438f1600445ebb647efb179966eb8f6ce02849cba320d"
+    },
+    "view": {
+        "extent": [166345.3677523765,448405.46849816863,166485.14633158993,448480.26892704493]
+    },
+    "debug": true,
+    "oauth": {
+        "provider": "auth0",
+        "domain": "https://dev-mt2bymz6.eu.auth0.com",
+        "client_id": "4UXmDbaeBQxXlw565JnXgtwZiVDfqR8R",
+        "audience": "https://www.planviewer.test/maps_api/application/38"
+    }
+}
