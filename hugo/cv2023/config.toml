@@ -1,6 +1,6 @@
 # Page settings
 
-baseURL = "https://lucasthoelke.github.io/"
+baseURL = "https://lucasthoelke.github.io/cv/nl/2023/"
 languageCode = "nl"
 title = "CV Lucas Thoelke"
 theme = "hugo-devresume-theme"
