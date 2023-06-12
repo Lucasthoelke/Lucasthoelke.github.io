@@ -1,0 +1,409 @@
+# Page settings
+
+baseURL = "https://cv.thoelke.xyz/"
+languageCode = "nl"
+title = "CV Lucas Thoelke"
+theme = "hugo-devresume-theme"
+googleAnalytics = "UA-XXXXXXX-Y"
+
+
+
+
+
+
+[params]
+    author = "Lucas Thoelke"
+    description = "Lucas Thoelke's CV. Theme by CowboySmall"
+
+
+    primaryColor = "#F2545B"
+    textPrimaryColor = "#292929"
+
+
+
+
+    [params.profile]
+        enable = true
+        name = "Lucas Thoelke"
+        tagline = "Curriculum Vitae"
+        avatar = "avatar.png"
+
+
+
+
+
+
+
+    [params.contact]
+        enable = true
+        location = "Nijmegen"
+
+        [[params.contact.list]]
+        icon = "fas fa-phone-square"
+        url = "tel:#"
+        text = "+31 6 46 89 26 14"
+        [[params.contact.list]]
+        icon = "fas fa-envelope-square"
+        url = "mailto:#"
+        text = "lucas@thoelke.xyz"
+#        [[params.contact.list]]
+#        icon = "fas fa-globe"
+#        url = "#"
+#        text = "www.yourwebsite.com"
+
+
+
+
+
+
+
+    [params.skills]
+        enable = true
+
+        [[params.skills.list]]
+        title = "Technisch [* - *****]"
+        [[params.skills.list.items]]
+        details = "PHP [****]"
+        [[params.skills.list.items]]
+        details = "Python [***]"
+        [[params.skills.list.items]]
+        details = "Java [**]"
+        [[params.skills.list.items]]
+        details = "Javascript [**]"
+        [[params.skills.list.items]]
+        details = "MySQL, PostgreSQL, GoogleSQL [**]"
+        [[params.skills.list.items]]
+        details = "PostGis [***]"
+        [[params.skills.list.items]]
+        details = "HTML, CSS, SCSS [***]"
+        [[params.skills.list.items]]
+        details = "C#/.NET [*]"
+        [[params.skills.list.items]]
+        details = "C, C++ [*]"
+
+        [[params.skills.list]]
+        title = "Frameworks [* - *****]"
+        [[params.skills.list.items]]
+        details = "Symfony [****]"
+        [[params.skills.list.items]]
+        details = "Asyncio [***]"
+        [[params.skills.list.items]]
+        details = "Codeigniter [*]"
+        [[params.skills.list.items]]
+        details = "Bootstrap [**]"
+        [[params.skills.list.items]]
+        details = "Arduino [**]"
+
+        [[params.skills.list]]
+        title = "Systeem beheer [* - *****]"
+        [[params.skills.list.items]]
+        details = "Linux [****]"
+        [[params.skills.list.items]]
+        details = "Proxmox [***]"
+        [[params.skills.list.items]]
+        details = "Docker [**]"
+        [[params.skills.list.items]]
+        details = "NGINX [**]"
+        [[params.skills.list.items]]
+        details = "PfSense [**]"
+        [[params.skills.list.items]]
+        details = "Google Analytics [***]"
+        [[params.skills.list.items]]
+        details = "Google Cloud [***]"
+        [[params.skills.list.items]]
+        details = "GitLab CE [***]"
+        [[params.skills.list.items]]
+        details = "Vagrant [***]"
+        [[params.skills.list.items]]
+        details = "Ansible [***]"
+        [[params.skills.list.items]]
+        details = "Ninox [****]"
+
+        [[params.skills.list]]
+        title = "Persoonlijk"
+        [[params.skills.list.items]]
+        details = "Leergierig"
+        [[params.skills.list.items]]
+        details = "Communicatief"
+        [[params.skills.list.items]]
+        details = "Doorzettingsvermogen"
+        [[params.skills.list.items]]
+        details = "Out of the box denkvermogen"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    [params.education]
+        enable = true
+
+        [[params.education.list]]
+        degree = "VO De Vallei"
+        university = "Democratische middelbare school"
+        dates = "Mei 2015 - Juli 2020"
+        [[params.education.list]]
+        degree = "Bildung"
+        university = "In samenwerking met Radboud Universiteit, HAN en Artez Het bevorderen van een verantwoordelijke relatie met jezelf, elkaar en de samenleving."
+        dates = "September 2019 - Januari 2020"
+        [[params.education.list]]
+        degree = "Karel de Grote College"
+        university = "1e en 2e klas HAVO"
+        dates = "September 2012 - Mei 2015"
+
+
+
+
+
+
+
+
+
+    [params.awards]
+        enable = true
+
+        [[params.awards.list]]
+        name = "HAVO Staatsexamen Informatica"
+        body = "Eindcijfer 9"
+        date = "2019"
+
+        [[params.awards.list]]
+        name = "HAVO Staatsexamen Maatschappijleer"
+        body = "Eindcijfer 7"
+        date = "2019"
+
+        [[params.awards.list]]
+        name = "Deviant toets Engels"
+        body = "Bovengemiddeld"
+        date = "2020"
+
+
+
+
+
+
+
+
+    [params.languages]
+        enable = true
+
+        [[params.languages.list]]
+        name = "Nederlands"
+        level = "Moedertaal"
+        [[params.languages.list]]
+        name = "Engels"
+        level = "Vloeiend"
+
+
+
+
+
+
+
+
+    [params.interests]
+        enable = false
+
+#        [[params.interests.list]]
+#        name = "Climbing"
+#        [[params.interests.list]]
+#        name = "Snowboarding"
+#        [[params.interests.list]]
+#        name = "Photography"
+#        [[params.interests.list]]
+#        name = "Travelling"
+
+
+
+
+
+
+
+
+    [params.summary]
+        enable = true
+#        text = "[todo: updaten]Ik ben van jongs af aan geïnteresseerd geweest in alles wat met computers en elektronica te maken had. Toen ik op de Democratische school Vo De Vallei terecht kwam is dat echt gaan bloeien. Ik ben begonnen met spelend leren over al mijn computer (en andere) gerelateerde interesses. Al gauw zat ik vol in code en kwam ik in contact met professionals op de hackerspace. Blijven leren, ontwikkelen en daar lol bij hebben is en blijft altijd mijn doel."
+        text = "Van jongs af aan ben ik gefascineerd door alles wat met computers en elektronica te maken heeft. Deze passie kwam pas echt tot bloei toen ik op een Democratische school terechtkwam. Door middel van spelenderwijs leren, ontdekte ik mijn interesses in alles wat met computers en technologie te maken heeft. Al snel dompelde ik me onder in coderen en legde contacten met professionals op de hackerspace in Arnhem.\n\n Nadat de coronapandemie toesloeg, begon ik bij ROgeo te werken. Hier heb ik niet alleen mijn programmeervaardigheden verder ontwikkeld, maar ook kennis opgedaan van projectmanagement, servers, klantrelaties en databeheer. Deze brede set aan vaardigheden heeft mij een inzicht gegeven in de operationele dynamiek van het bedrijf.\n\n Blijven leren, mijzelf ontwikkelen en plezier hebben in wat ik doe, blijven mijn belangrijkste drijfveren. Met mijn sterke achtergrond in programmeren, gecombineerd met ervaring in verschillende facetten van het bedrijfsleven, ben ik enthousiast over de kansen die de toekomst biedt."
+
+
+
+
+
+
+
+    [params.experience]
+        enable = true
+
+        [[params.experience.list]]
+        title = "Software Developer / GIS-GEO medewerker"
+        dates = "Augustus 2020 - Heden"
+        company = "ROgeo"
+        details = "Ik ben in augustus 2020 bij ROgeo gestart als trainee. Na mijn inwerkperiode begon ik met het ontwikkelen van voornamelijk interne tools ter ondersteuning van onze GIS-medewerkers. Hiervoor maakte ik vooral gebruik van de API's van Planviewer, een zusterbedrijf van ROgeo. Door deze samenwerking ben ik nauw betrokken geraakt bij het team van Planviewer.\n\n Als de enige volwaardige ontwikkelaar aan de kant van ROgeo was ik breed inzetbaar, waarbij ik full-stack development vaardigheden toepaste. Onder begeleiding van twee senior developers aan de Planviewer zijde heb ik me snel kunnen ontwikkelen op het gebied van software, GIS/GEO en overheidsdata. Deze progressie resulteerde binnen een aantal maanden in mijn promotie van trainee naar junior developer.\n\n Mijn rol bij ROgeo breidde later uit naar gebiedsontwikkeling en datamanagement. Ik heb meerdere databeheer- en CRM-systemen opgezet met Ninox, een platform dat de functionaliteiten van een traditionele database koppelt aan de toegankelijkheid van Excel. Na het opdoen van deze ervaring ben ik gepromoveerd van junior developer naar de rol van GIS/GEO medewerker/developer. Hierbij was mijn voornaamste taak het integreren van verschillende datasets met onze eigen data en kaarten. Dit alles heb ik gerealiseerd terwijl ik tegelijkertijd onze software stack bleef onderhouden en verbeteren."
+
+        [[params.experience.list]]
+        title = "Penningmeester Scherm-vereniging"
+        dates = "September 2022 - Heden"
+        company = "NSSV Don Quichote"
+        details = "Sinds 2022 dien ik als penningmeester in het bestuur van de studenten schermvereniging NSSV Don Quichote, een actieve club met ongeveer 40 leden. In deze rol ben ik niet alleen verantwoordelijk voor de financiën van de vereniging, maar heb ik ook een breed scala aan managementtaken op me genomen. Ik beheer diverse commissies, coördineer de aanschaf van materialen en onderhoud nauw contact met onze coaches en leden over de huidige en toekomstige doelstellingen. \n\nEen van onze grootste uitdagingen was de club weer opbouwen na de Covid-19 pandemie. Met succesvolle strategieën en toegewijde inspanningen hebben we onze club weer tot een actieve en leuke community opgebouwd."
+
+        [[params.experience.list]]
+        title = "IT-Beheer"
+        dates = "Mei 2015 - Heden"
+        company = "VO de Vallei"
+        details = "Ik heb mijn oude school niet alleen bijgewoond, maar ook actief bijgestaan bij hun IT-zaken. Hoewel ik momenteel minder actief betrokken ben, bied ik nog steeds af en toe mijn hulp aan."
+        [[params.experience.list.items]]
+        details = "Wifi Netwerk opgezet en onderhouden"
+        [[params.experience.list.items]]
+        details = "Ik heb de servers opgezet en onderhouden, zowel op het gebied van software als hardware"
+        [[params.experience.list.items]]
+        details = "AVG-conformiteit van software voor leerlingengegevens en -bestanden gerealiseerd"
+        [[params.experience.list.items]]
+        details = "Ontwikkelde ondersteunende software voor leraren en coaches"
+
+        [[params.experience.list]]
+        title = "IT-Ondersteuning"
+        dates = "Heden"
+        company = "Privé"
+        details = "Ik lever privé IT-support aan individuen en kleine bedrijven in de buurt."
+        [[params.experience.list.items]]
+        details = "Verzorging van WIFI en netwerkondersteuning, inclusief installatie"
+        [[params.experience.list.items]]
+        details = "Opzetten en onderhouden van websites"
+        [[params.experience.list.items]]
+        details = "Bouwen, upgraden en onderhouden van pc's"
+        [[params.experience.list.items]]
+        details = "Opzetten en onderhouden van servers"
+        [[params.experience.list.items]]
+        details = "Beveiliging van bedrijfsnetwerken en servers van klanten"
+
+        [[params.experience.list]]
+        title = "Online freelancing"
+        dates = "2019 - 2020"
+        company = "Fiverr"
+        details = "Tijdens mijn periode op het online freelancing platform Fiverr heb ik servers onderhouden en software ontwikkeld voor verschillende klanten."
+        [[params.experience.list.items]]
+        details = "Installatie en onderhoud van game servers"
+
+        [[params.experience.list.items]]
+        details = "Onderhoud van oude MS SQL game servers"
+
+        [[params.experience.list.items]]
+        details = "Installatie en onderhoud van Linux Dedicated servers"
+
+        [[params.experience.list.items]]
+        details = "Schrijven, updaten en onderhouden van PHP-backends"
+
+        [[params.experience.list.items]]
+        details = "Updaten en onderhouden van frontends"
+
+
+
+
+
+
+
+
+
+    [params.projects]
+        enable = true
+
+        [[params.projects.list]]
+        title = "Nieuwbouw projecten database"
+        meta = "ROgeo"
+        tagline = "[todo]"
+
+        [[params.projects.list]]
+        title = "AVG scanner ruimtelijke plannen en omgevings vergunningen"
+        meta = "ROgeo"
+        tagline = "[todo]"
+
+        [[params.projects.list]]
+        title = "Kadastrale transactie database"
+        meta = "ROgeo"
+        tagline = "[todo]"
+
+        [[params.projects.list]]
+        title = "Geautomatiseerde kadastrale eigendom's gegevens"
+        meta = "ROgeo"
+        tagline = "[todo]"
+
+        [[params.projects.list]]
+        title = "Homelab"
+        meta = "Privé"
+        tagline = "Ik heb meerdere servers thuis opgezet en beheerd, inclusief de configuratie van een intern netwerk, externe opslag en VM's. Uiteindelijk heb ik besloten om de infrastructuur te verhuizen naar een dedicated server bij Hetzner. Hierbij heb ik Proxmox gebruikt als virtualisatieplatform en pfsense voor het beheer van het interne netwerk.."
+
+        [[params.projects.list]]
+        title = "Uren Registratie"
+        meta = "Vo De Vallei"
+        tagline = "Ontworpen en getest urenregistratieprogramma voor de school. Gemaakt met PHP en CodeIgniter 4 als framework. Modulair en gemakkelijk uitbreidbaar."
+
+        [[params.projects.list]]
+        title = "AVG-voldoenende dataopslag"
+        meta = "Vo De Vallei"
+        tagline = "Oplossing ontwikkeld voor veilige en kosteneffectieve opslag van leerlinggegevens na invoering van AVG-wetgeving. Gebouwd een on-site server met Proxmox VE en Nextcloud VM. Dagelijkse off-site encryptie en back-up. Beveiligd met NGINX reverse proxy en SSL."
+
+        [[params.projects.list]]
+        title = "News Crawler"
+        meta = "Particuliere klant"
+        tagline = "Opdracht ontvangen via Fiverr om een nieuws crawler te repareren, verbeteren en een nieuw ontwerp te geven. Code herschreven en modulaire plugins geïmplementeerd voor diverse nieuwssites."
+
+        [[params.projects.list]]
+        title = "PHP Framework"
+        meta = "Privé"
+        tagline = "Eigen PHP-framework ontwikkeld tijdens het prototypen van de Uren Registratie. Inclusief modules, geavanceerd exception management, logger, geautomatiseerde API, permissionsysteem, sessiesysteem met permissions, gebruikersysteem en meer."
+
+        [[params.projects.list]]
+        title = "Yeelight Python"
+        meta = "Privé"
+        tagline = "Wrapper voor de Yeelight Python library om Yeelight RGB-lampen met zowel de commandline als via een MQTT-server te kunnen besturen."
+
+
+
+
+
+
+
+
+    [params.information]
+        enable = true
+
+        [[params.information.list]]
+        title = "Persoonlijk"
+        [[params.information.list.items]]
+        details = "Ik ben geboren op 11 december 2001 in Delft en ik bezit zowel de Nederlandse als de Zwitserse nationaliteit."
+
+        [[params.information.list]]
+        title = "Transport"
+        details = "Ik ben in het bezit van een rijbewijs B en een eigen auto. Daarnaast woon ik in de nabijheid van een treinstation."
+
+
+
+
+
+
+
+
+    [params.social]
+        enable = true
+
+        [[params.social.list]]
+        icon = "fab fa-github-square"
+        url = "https://github.com/Lucasthoelke"
+        title = "Lucasthoelke"
+        [[params.social.list]]
+        icon = "fab fa-linkedin"
+        url = "https://www.linkedin.com/in/lucas-thoelke-5b7301196/"
+        title = "Lucas Thoelke"
+
+
+
+
+
