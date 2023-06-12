@@ -1,0 +1,16 @@
+- id: awards
+  translation: Certificaten
+- id: education
+  translation: Opleidingen & Cursussen
+- id: experiences
+  translation: Ervaring
+- id: information
+  translation: Informatie
+- id: interests
+  translation: Interreses
+- id: languages
+  translation: Talen
+- id: projects
+  translation: Projecten
+- id: skills
+  translation: Vaardigheden

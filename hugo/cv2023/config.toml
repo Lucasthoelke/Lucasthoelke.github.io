@@ -80,6 +80,8 @@ googleAnalytics = "UA-XXXXXXX-Y"
         details = "C#/.NET [*]"
         [[params.skills.list.items]]
         details = "C, C++ [*]"
+        [[params.skills.list.items]]
+        details = "GIT [***]"
 
         [[params.skills.list]]
         title = "Frameworks [* - *****]"
