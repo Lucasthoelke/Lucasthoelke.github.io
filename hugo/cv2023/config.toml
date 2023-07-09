@@ -212,16 +212,16 @@ googleAnalytics = "UA-XXXXXXX-Y"
 
 
     [params.interests]
-        enable = false
+        enable = true
 
-#        [[params.interests.list]]
-#        name = "Climbing"
-#        [[params.interests.list]]
-#        name = "Snowboarding"
-#        [[params.interests.list]]
-#        name = "Photography"
-#        [[params.interests.list]]
-#        name = "Travelling"
+        [[params.interests.list]]
+        name = "Geboren in December 2001 te Delft"
+        [[params.interests.list]]
+        name = "In bezit zowel de Nederlandse als de Zwitserse nationaliteit"
+        [[params.interests.list]]
+        name = "In bezit van een rijbewijs B en eigen auto"
+        [[params.interests.list]]
+        name = "Ik woon in de nabijheid van een treinstation"
 
 
 
@@ -320,22 +320,27 @@ googleAnalytics = "UA-XXXXXXX-Y"
         [[params.projects.list]]
         title = "Nieuwbouw projecten database"
         meta = "ROgeo"
-        tagline = "[todo]"
+        tagline = "Rol: Projectleider\n\nBinnen het nog lopende project van ROgeo streven we ernaar om alle Nederlandse nieuwbouwprojecten in onze database op te nemen.\n\nDeze database is gecreëerd op het no-code databaseplatform Ninox, wat ons in staat stelde om snel een basisinfrastructuur op te zetten die zelfs door niet-technische gebruikers kan worden bediend.\n\nMet de verdere implementatie van onze API's en Python-scripts via Ninox kunnen we ook geavanceerdere functies uitvoeren.\n\nDe technische aspecten van dit project vormden minder een uitdaging dan het beheer van de aanzienlijke hoeveelheid data.\n\nNieuwbouwprojecten zijn dynamische, 'levende' omgevingen en de informatie over deze projecten is niet altijd volledig openbaar en wordt voortdurend aangepast en herzien.\n\nDit vereiste de ontwikkeling van een dataflow die dit soort variabiliteit kon accommoderen en tegelijkertijd zo veel mogelijk automatiseerde en ondersteunde.\n\nOm deze uitdagingen aan te gaan, implementeerde ik een aantal technische oplossingen:\n\n- Ik heb een multithreaded scriptbeheerder in Python ontwikkeld, die direct vanuit Ninox kan worden beheerd.\n- Ik heb scripts gemaakt die onze API's en systemen koppelen om de database aan te vullen en te controleren.\n- Ik heb spatial processing-functies geïntegreerd in deze non-spatial no-code database.\n- Ik heb de slecht gedocumenteerde en nog in ontwikkeling zijnde Ninox scripttaal gebruikt om geavanceerde API's en formules te implementeren.\n- Ik heb onze bestaande projecten database op onze Wordpress site gekoppeld aan deze Ninox database.\n\nDit project vereiste niet alleen technische bekwaamheid, maar ook strategisch databeheer om de unieke uitdagingen van 'levende' nieuwbouwprojecten aan te gaan."
 
         [[params.projects.list]]
         title = "AVG scanner ruimtelijke plannen en omgevings vergunningen"
         meta = "ROgeo"
-        tagline = "[todo]"
+        tagline = "Rol: Lead developer\n\nHet is niet ongewoon dat overheden per ongeluk persoonsgevoelige informatie publiceren in lokale bekendmakingen en bestemmingsplannen.\n\nOm deze problematiek aan te pakken, hebben we een hulpmiddel ontwikkeld dat gemeenten in staat stelt hun databases te doorzoeken en de potentieel problematische bestanden te identificeren.\n\nGezien de documenten overwegend worden gepubliceerd in slecht gestructureerde PDF's en scans, was het niet mogelijk om directe tekstanalyse toe te passen.\n\nDaarom hebben we een Optical Character Recognition (OCR) systeem geïmplementeerd.\n\nBovendien heb ik een systeem ontwikkeld dat verschillende patronen identificeert en deze vervolgens weegt om de relevantie te beoordelen.\n\nTijdens dit project ben ik verschillende uitdagingen tegengekomen, waaronder:\n\n- Het finetunen van de OCR voor optimale tekstdetectie.\n- Het aanpassen van de herkenningsmodules om een nauwkeurige patronenidentificatie te waarborgen.\n- Het verwerken van duizenden PDF's, inclusief hun download, registratie en caching, wat een aanzienlijke data-management uitdaging vormde.\n- Het implementeren van multi-threading om de scansnelheid te verhogen en de totale verwerkingstijd te verminderen.\n\nDit project vereiste een grondige technische expertise, een sterke aandacht voor detail en de vaardigheid om complexe problemen effectief op te lossen."
 
         [[params.projects.list]]
         title = "Kadastrale transactie database"
         meta = "ROgeo"
-        tagline = "[todo]"
+        tagline = "Rol: Lead developer\n\nBij het Kadaster is een service beschikbaar die maandelijks een gedetailleerd overzicht van de eigendomstransacties binnen een bepaald gebied aanlevert.\n\nDeze transacties, bevatten nagenoeg alle eigendomsveranderingen die in het desbetreffende gebied plaatsvinden.\n\nOndanks de waardevolle informatie die deze data biedt, vormt de verwerking ervan een uitdaging vanwege de beperkte contextuele gegevens.\n\nHierdoor is handmatige verwerking vereist, wat hoewel beheersbaar voor individuele projecten, aanzienlijke manuren kost als het wordt toegepast op de grotere projectportefeuille van ROgeo.\n\nOm dit probleem aan te pakken, nam ik de verantwoordelijkheid op me om een automatiseringsproces te ontwikkelen, wat een van de meest uitdagende projecten werd die ik bij ROgeo heb ondernomen.\n\nDe complexiteit ontstond door de noodzaak om:\n\n- Data te interpreteren die primair was ontworpen voor menselijke consumptie, niet voor computerverwerking.\n- Rekening te houden met de mogelijkheid dat elke transactie op verschillende data verwerkt kon zijn.\n- Variabele factoren, zoals de splitsing, samenvoeging, hermeting en dergelijke van percelen, in overweging te nemen.\n- De moeilijk toegankelijke historische data van de percelen te verwerken.\n- Het omgaan met een aanzienlijke hoeveelheid geometrische data.\n- Diverse kleinere, maar complexe problemen op te lossen.\n\nDit project vereiste niet alleen een grondige planning vanaf het begin, maar ook een continue afweging van het grotere geheel.\n\nHet was een veelomvattend proces, waarbij de uitdagingen van data-interpretatie en -verwerking op de voorgrond stonden."
 
         [[params.projects.list]]
         title = "Geautomatiseerde kadastrale eigendom's gegevens"
         meta = "ROgeo"
-        tagline = "[todo]"
+        tagline = "Rol: Lead developer\n\nMijn eerste project bij ROgeo stond in het teken van het integreren van API's van ons zusterbedrijf Planviewer en het Kadaster. Het project doelde op de ontwikkeling van een functie waarmee je een gebied op een kaart kon aanduiden en vervolgens toegang kreeg tot alle eigendomsaktes binnen dat gebied, compleet met een gedetailleerd Excel-overzicht. \n\nDe door Planviewer's API's gegenereerde geometrische input werd omgezet naar een lijst met perceelnummers die vervolgens gebruikt konden worden om de eigendomsaktes op te vragen. Echter, het verwerken van deze aktes vormde een uitdaging; ze werden namelijk geleverd in de vorm van omvangrijke SOAP XML's, vergezeld door de karakteristiek teleurstellende documentatie van semi-overheden. Na veel reverse-engineer werk en het combineren van de beschikbare documentatie, slaagde ik erin dit probleem om te zetten naar een success.\n\n Het succesvol implementeren van deze software in ROgeo's webportaal vereiste talrijke uitbreidingen. Het resultaat was een gestroomlijnde workflow voor het bestellen van eigendomsinformatie. Deze innovatie stelde onze geo-specialisten in staat om de benodigde gegevens veel sneller te verwerken.\n\n Eenmaal de kinderziektes geëlimineerd waren en het systeem zichzelf had bewezen, zijn we gestart met het direct aanbieden van deze service aan onze klanten.\n\n Enkele jaren later heb ik dit project weer opgepakt toen het Kadaster een nieuwe versie van hun KIK API lanceerde, waarbij de XML was omgezet naar een JSON. Hoewel dit in eerste instantie een enorme herziening leek, was de overgang dankzij de modulaire opzet van mijn oorspronkelijke project in slechts een week voltooid."
+
+        [[params.projects.list]]
+        title = "ROgeo Klantportaal / Mijn ROgeo"
+        meta = "ROgeo"
+        tagline = "Rol: Lead developer\n\nToen ik begon bij ROgeo nam ik de verantwoordelijkheid op mij voor het onderhouden en upgraden van ROgeo's webportaal, de digitale interface voor hun Gebiedsscan-tool.\n\nDoor de jaren heen heb ik verschillende verbeteringen doorgevoerd om de functionaliteit en gebruiksvriendelijkheid van het portaal te optimaliseren.\n\nIk heb me bijvoorbeeld beziggehouden met:\n\n- Herziening van de gebruikersflow om ondersteuning voor meerdere producten mogelijk te maken.\n- Ontwikkeling van een productgeneratorsysteem.\n- Implementatie van een deelsysteem voor producten en projecten, waardoor gebruikers informatie efficiënt kunnen delen met hun teams of klanten.\n- Ontwikkeling van een API om de interactie met andere systemen en diensten te vergemakkelijken.\n- Uitbreiding van de ondersteuning voor verschillende geometrische formaten.\n- Onderhoud van servers en verbetering van de deploy-processen."
 
         [[params.projects.list]]
         title = "Homelab"
@@ -375,7 +380,7 @@ googleAnalytics = "UA-XXXXXXX-Y"
 
 
     [params.information]
-        enable = true
+        enable = false
 
         [[params.information.list]]
         title = "Persoonlijk"
